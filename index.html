@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;800;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="container.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="challenge.css">
+    <link rel="shortcut icon" href="#">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="screen-main" class="container">
+        <section id="intro"></section>
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar mt-30">
+                    <h3 id="title-effect" class="title-top-bar">Escolha uma opção</h3>
+                </div>
+            </div>
+        </div>
+        <div id="main-base-effect">
+            <div class="container-padding">
+                <div class="sub-settings">
+                    <div class="sub-settings">
+                        <div id="main-boards" class="pointer main-box">
+                            <div class="main-cube"></div>
+                            <span class="main-text">Placas</span>
+                        </div>
+                        <div id="main-settings" class="pointer main-box">
+                            <img src="./images/gear1.png" id="img-gear" alt="">
+                            <span class="main-text">Ajustes</span>
+                        </div>
+                        <div id="main-performance" class="pointer main-box">
+                            <img src="./images/desempenho.png" id="img-performance" alt="">
+                            <span class="main-text">Desempenho</span>
+                        </div>
+                        <div id="main-play" class="pointer main-box">
+                            <img src="./images/controle1.png" id="img-play" alt="">
+                            <span class="main-text">Jogar Memória</span>
+                        </div>
+                        <div id="main-play-challenge" class="pointer main-box">
+                            <img src="./images/controle2.png" id="img-play" alt="">
+                            <span class="main-text">Jogar Desafio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-settings" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar mt-20">
+                    <div id="home-in-settings" class="home">
+                        <img src="./images/home.png" id="img-home-s" alt="">
+                        <h3 class="title-top-bar">Início</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-padding divide-group">
+            <div class="container-padding sub-settings">
+                <div class="container-padding">
+                    <div class="title-group-category">
+                        <img src="./images/gear2.png" id="img-settings2" alt="">
+                        <h3 class="title-category title-top-bar">Ajustes</h3>
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="sub-title-category">Categoria das Placas</h3>
+                    </div>
+                    <div id="sinal-1" class="sub-category-box sub-category-box-pressed mt-10">
+                        <img src="./images/boardReg.png" id="board-reg" alt="">
+                        <div>
+                            <div class="text-title">Sinais de Regulamentação</div>
+                            <div class="text-infor">Informa condições, proibições, obrigações ou
+
+                                restrições
+                                no uso das vias. Suas mensagens são imperativas e o desrespeito a elas
+                                constitui infração
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sinal-2" class="sub-category-box mt-10">
+                        <img src="./images/boardWarning.png" id="board-warning" alt="">
+                        <div>
+                            <div class="text-title">Sinais de Advertência</div>
+                            <div class="text-infor">Alerta para condições potencialmente perigosas, indicando sua
+                                natureza
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="sub-title-category">Nível da Dificuldade</h3>
+                    </div>
+                    <div id="difficulty-1" class="sub-category-box sub-category-box-pressed mt-10">
+                        <img src="./images/normal.png" id="normal" alt="">
+                        <div>
+                            <div class="text-title">Normal</div>
+                            <div class="text-infor">Memorize 1 placa em 4 posições de 12 </div>
+                        </div>
+                    </div>
+                    <div id="difficulty-2" class="sub-category-box mt-10">
+                        <img src="./images/hard.png" id="hard" alt="">
+                        <div>
+                            <div class="text-title">Difícil</div>
+                            <div class="text-infor">Memorize 1 placa em 5 posições de 20 </div>
+                        </div>
+                    </div>
+                    <div class="mt-20">
+                        <h3 class="sub-title-category">Dados do Aplicativo</h3>
+                    </div>
+                    <div class="mt-10 ml-10">
+                        <div class="text-about">Jogo da Memória - Placas de Trânsito</div>
+                        <span class="text-about">Versão 1.0.1</span>
+                        <span class="text-about ml-20">Ano 2022</span>
+                        <div class="text-about">Feito com <span><img src="images/heart.png" id="heart" alt=""></span>
+                            por Rafael Mota</div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-bottom">
+                <div class="container-padding sub-settings">
+                    <div class="container-padding">
+                        <div id="back-settings" class="btn-box">
+                            <img id="img-back" src="images/back.png" alt="">
+                            <span>Voltar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-performance" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar mt-20">
+                    <div id="home-in-performance" class="home">
+                        <img src="./images/home.png" id="img-home-p" alt="">
+                        <h3 class="title-top-bar">Início</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-padding divide-group">
+            <div class="container-padding sub-settings">
+                <div class="container-padding">
+                    <div class="title-group-category">
+                        <img src="./images/desempenho.png" id="img-performance-2" alt="">
+                        <h3 class="title-category">Desempenho</h3>
+                    </div>
+                    <div id="historic">
+                        <div class="list-box mt-20">
+                            <span class="text-title">Pontos</span>
+                            <span id="historic-points" class="text-historic"></span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Acertos</span>
+                            <span id="historic-hits" class="text-historic"></span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Erros</span>
+                            <span id="historic-errors" class="text-historic"></span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Tempo Total</span>
+                            <span class="text-historic">
+                                <span id="historic-hours">
+                                </span>
+                                <span>:</span>
+                                <span id="historic-minutes">
+                                </span>
+                                <span>:</span>
+                                <span id="historic-seconds"></span>
+                            </span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Placas de Regulamentação</span>
+                            <span id="boards-r-p" class="text-historic">0/51</span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Placas de Advertência</span>
+                            <span id="boards-w-p" class="text-historic">0/69</span>
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Conclua no Normal</span>
+                            <img src="./images/strawberryOff.png" id="img-strawberry" alt="">
+                        </div>
+                        <div class="list-box mt-5">
+                            <span class="text-title">Conclua no Difícil</span>
+                            <img src="./images/starOff.png" id="img-star" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-bottom">
+                <div class="container-padding sub-settings">
+                    <div class="container-padding group-box-bottom">
+                        <div id="back-performance" class="btn-box">
+                            <img id="img-back" src="images/back.png" alt="">
+                            <span>Voltar</span>
+                        </div>
+                        <div id="reset-game" class="btn-box">
+                            <img id="reset" src="images/reset.png" alt="">
+                            <span>Resetar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-boards" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar mt-20">
+                    <div id="home-in-boards" class="home">
+                        <img src="./images/home.png" id="img-home-b" alt="">
+                        <h3 class="title-top-bar">Início</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-padding divide-group">
+            <div class="container-padding sub-settings">
+                <div class="container-padding">
+                    <div class="title-group-category">
+                        <img src="./images/boards.png" id="img-boards-2" alt="">
+                        <h3 class="title-category">Placas</h3>
+                    </div>
+                    <div class="title-choose-boards">
+                        <div id="board-type-r" class="boards-type boards-type-on-1">Regulamentação</div>
+                        <div id="board-type-w" class="boards-type">Advertência</div>
+                    </div>
+                    <div class="mt-20 diplay-amount">
+                        <h3 class="sub-title-category">Placas descobertas</h3>
+                        <h3 id="amount-title-b" class="sub-title-category"></h3>
+                    </div>
+                    <div id="list-board-group">
+                        <ul id="type-R" class="mt-20"></ul>
+                        <ul id="type-W" class="mt-20 display-off"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="box-bottom">
+                <div class="container-padding sub-settings">
+                    <div class="container-padding group-box-bottom">
+                        <div id="back-boards" class="btn-box">
+                            <img id="img-back" src="images/back.png" alt="">
+                            <span>Voltar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <div id="change-category" class="regulamentation"></div>
+    <section id="screen-challenge" class="container display-off">
+        <div class="background-fixed background-top"></div>
+        <section id="challenge">
+            <div class="painel container-padding">
+                <div class="painel-center">
+                    <div>
+                        <img id="board-image-challenge" src="" alt="placa">
+                    </div>
+                    <div id="text-infor-2" class="mt-20">
+                        <p id="board-name-challenge">Sentido proíbido</p>
+                        <p id="board-code-challenge" class="mt-20">R-3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-game" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar top-bar-between mt-30">
+                    <span id="settings-game" class="pointer" class="home">
+                        <img src="./images/home.png" id="img-home-g" alt="opções">
+                        <h3 class="title-top-bar">Início</h3>
+                    </span>
+                    <span>
+                        <p class="text-b-game-1">Placas:</p>
+                        <p id="boards-game" class="text-b-game-2"></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="middle-panel" class="mt-10">
+            <div id="block-panel"></div>
+            <div class="container-padding">
+                <div id="board-name"></div>
+                <div class="mt-20">
+                    <ul id="list-level" class="boards">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="background-bottom bg-bottom-lager">
+            <div class="container-padding">
+                <div id="painel-player">
+                    <div id="sub-bar-top">
+                        <div id="score-bar">
+                            <div id="points-bar" class="text-bar-effect">0</div>
+                            <div id="points-error1"></div>
+                            <div id="points-error2"></div>
+                        </div>
+                        <div id="life">
+                            <div id="life-1" class="life-on"></div>
+                            <div id="life-2" class="life-on"></div>
+                        </div>
+                    </div>
+                    <div id="color-bar">
+                        <div id="b1" class="mini-bar mini-off"></div>
+                        <div id="b2" class="mini-bar mini-off"></div>
+                        <div id="b3" class="mini-bar mini-off"></div>
+                        <div id="b4" class="mini-bar mini-off"></div>
+                        <div id="b5" class="mini-bar mini-off"></div>
+                        <div id="b6" class="mini-bar mini-off"></div>
+                        <div id="b7" class="mini-bar mini-off"></div>
+                        <div id="b8" class="mini-bar mini-off"></div>
+                        <div id="b9" class="mini-bar mini-off"></div>
+                        <div id="b10" class="mini-bar mini-off"></div>
+                    </div>
+                    <div id="bar-boosters">
+                        <div id="line-effect" class="line-boosters">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section id="screen-feedback" class="back-feedback display-off">
+            <div class="center-feedback">
+                <div class="front-feedback">
+                    <div id="fail" class="display-off">
+                        <div class="elements-feedback">
+                            <div id="x-fail">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div id="id-text-fail" class="text-feedback">Falhou!</div>
+                            <div id="id-infor-fail" class="infor-fail mt-5">Tente outra vez</div>
+                        </div>
+                    </div>
+                    <div id="correct" class="display-off">
+                        <div class="elements-feedback mt-20">
+                            <div id="v-ok" class="ok-effect-on">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div id="id-text-ok" class="text-feedback mt-10">Certo!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="screen-play-challenge" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar top-bar-between mt-30">
+                    <span id="home-in-challenge" class="pointer" class="home">
+                        <img src="./images/home.png" id="img-home-c" alt="opções">
+                        <h3 class="title-top-bar">Início</h3>
+                    </span>
+                    <span>
+                        <p class="text-b-game-1">Placas:</p>
+                        <p id="boards-game-challenge" class="text-b-game-2"></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="challenge-panel-top" class="back-panel-c-texto panel-default container-padding mt-30">
+            <div id="board-name-title" class="challenge-title"></div>
+        </div>
+        <div id="challenge-panel-middle" class="back-panel-c container-padding">
+            <div id="block-panel-b"></div>
+            <div id="block-panel-c" class="block-panel-dark display-off">
+                <div id="answer-board">
+                    <div>
+                        <img id="img-answer-board" src="" alt="">
+                    </div>
+                    <div id="name-answer-board" class="mt-20"></div>
+                </div>
+            </div>
+            <ul id="list-challenge" class="boards">
+                <li id="c1" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c2" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c3" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c4" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c5" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c6" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c7" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c8" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="c9" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-congratulation" class="container-dark display-off">
+        <div class="container-padding">
+            <div class="center-animation">
+                <div>
+                    <div class="title-congratulation mt-30">Parabéns!!!</div>
+                    <div class="text-congratulation mt-10">Você completou todas as placas de <span
+                            id="type-complete">regulamentação</span>
+                    </div>
+                </div>
+                <div class="mt-30"><img src="images/konata.gif" id="konata-gif" alt=""></div>
+                <div class="container-padding">
+                    <div id="back-congratulation" class="btn-box">
+                        <img id="img-back" src="images/back.png" alt="">
+                        <span>Voltar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
