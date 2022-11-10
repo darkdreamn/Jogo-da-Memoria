@@ -1539,6 +1539,8 @@ function loadData() {
         }
         recoverHistoric()
     }
+    else
+        changeCategory.key = 1
 }
 function createListLevel() {
     if (levels[0].selected) {
