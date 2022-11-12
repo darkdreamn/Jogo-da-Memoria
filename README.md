@@ -1,11 +1,11 @@
 # Jogo da Memória
 Programa desenvolvido com o propósito de auxiliar de forma lúdica no aprendizado e no reconhecimento das placas de Regulamentação e de Advertência do código de trânsito.</br>
 
-__Como Rodar__
-Procedimento para executar a aplicação: 
-1 - instalação do Visual Studio Code 
-2 - instalação da extensão Live Server na ferramenta da etapa anterior
-3 - clicando com o botão direito do mouse sobre o arquivo index.html e escolhendo a opção "Open with Live Server" 
+### Como Rodar
+Procedimento para executar a aplicação:</br> 
+1 - instalação do Visual Studio Code</br> 
+2 - instalação da extensão Live Server na ferramenta da etapa anterior</br> 
+3 - clicando com o botão direito do mouse sobre o arquivo index.html e escolhendo a opção "Open with Live Server"</br> 
 
 ### Placas
 Ao iniciar o jogo, todas as placas estarão bloqueadas e o usuário precisará conquistá-las vencendo em ‘Jogar Memória’. Todas as informações a respeito das placas foram extraídas do 'Manual Brasileiro de Sinalização de Trânsito - Volume 1 e 2 (2007)'.</br> 
