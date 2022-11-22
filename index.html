@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="challenge.css">
     <link rel="shortcut icon" href="#">
-    <title>Document</title>
+    <title>Jogo da Memória</title>
 </head>
 
 <body>
@@ -45,12 +45,16 @@
                             <span class="main-text">Desempenho</span>
                         </div>
                         <div id="main-play" class="pointer main-box">
-                            <img src="./images/controle1.png" id="img-play" alt="">
+                            <img src="./images/controle1.png" id="img-play1" class="img-play" alt="">
                             <span class="main-text">Jogar Memória</span>
                         </div>
                         <div id="main-play-challenge" class="pointer main-box">
-                            <img src="./images/controle2.png" id="img-play" alt="">
-                            <span class="main-text">Jogar Desafio</span>
+                            <img src="./images/controle8.png" id="img-play2" class="img-play" alt="">
+                            <span class="main-text">Jogar Desafio 1</span>
+                        </div>
+                        <div id="main-play-challenge2" class="pointer main-box">
+                            <img src="./images/controle4.png" id="img-play3" class="img-play" alt="">
+                            <span class="main-text">Jogar Desafio 2</span>
                         </div>
                     </div>
                 </div>
@@ -391,19 +395,19 @@
             </div>
         </div>
         <div id="challenge-panel-top" class="back-panel-c-texto panel-default container-padding mt-30">
-            <div id="board-name-title" class="challenge-title"></div>
+            <div id="board-name-title" class="challenge-title board-name-title"></div>
         </div>
         <div id="challenge-panel-middle" class="back-panel-c container-padding">
             <div id="block-panel-b"></div>
             <div id="block-panel-c" class="block-panel-dark display-off">
-                <div id="answer-board">
+                <div id="answer-board" class="answer-board">
                     <div>
                         <img id="img-answer-board" src="" alt="">
                     </div>
-                    <div id="name-answer-board" class="mt-20"></div>
+                    <div id="name-answer-board" class="name-answer-board mt-20"></div>
                 </div>
             </div>
-            <ul id="list-challenge" class="boards">
+            <ul id="list-challenge" class="boards list-challenge">
                 <li id="c1" class="size-normal elements element-img card">
                     <div class="size-normal face front"></div>
                 </li>
@@ -429,6 +433,75 @@
                     <div class="size-normal face front"></div>
                 </li>
                 <li id="c9" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="background-bottom bg-bottom-small"></div>
+    </section>
+    <section id="screen-play-challenge2" class="container display-off">
+        <div class="background-fixed">
+            <div class="container-padding">
+                <div class="top-bar top-bar-between mt-30">
+                    <span id="home-in-challenge2" class="pointer" class="home">
+                        <img src="./images/home.png" id="img-home-c" alt="opções">
+                        <h3 class="title-top-bar">Início</h3>
+                    </span>
+                    <span>
+                        <p class="text-b-game-1">Placas:</p>
+                        <p id="boards-game-challenge2" class="text-b-game-2"></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="challenge-panel-top2" class="back-panel-c-texto panel-default container-padding mt-30">
+            <div id="board-name-title2" class="challenge-title board-name-title"></div>
+        </div>
+        <div id="challenge-panel-middle2" class="back-panel-c container-padding">
+            <div id="block-panel-b2"></div>
+            <div id="block-panel-c2" class="block-panel-dark display-off">
+                <div id="answer-board2" class="answer-board">
+                    <div>
+                        <img id="img-answer-board2" src="" alt="">
+                    </div>
+                    <div id="name-answer-board2" class="name-answer-board mt-20"></div>
+                </div>
+            </div>
+            <ul id="list-challenge2" class="boards list-challenge">
+                <li id="d1" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d2" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d3" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d4" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d5" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d6" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d7" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d8" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d9" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d10" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d11" class="size-normal elements element-img card">
+                    <div class="size-normal face front"></div>
+                </li>
+                <li id="d12" class="size-normal elements element-img card">
                     <div class="size-normal face front"></div>
                 </li>
             </ul>

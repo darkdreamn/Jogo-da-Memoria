@@ -99,6 +99,12 @@
 .main-box:hover:nth-child(5) {
     margin: 17px -1px -1px 1px;
 }
+.main-box:nth-child(6) {
+    margin-top: 16px;
+}
+.main-box:hover:nth-child(6) {
+    margin: 17px -1px -1px 1px;
+}
 .main-cube {
     width: 26px;
     height: 26px;
@@ -124,8 +130,8 @@
     width: 30px;
     height: 30px;
 }
-#img-play {
-    width: 28px;
+.img-play {
+    width: 36px;
     height: 26px;
     rotate: -13deg;
 }
@@ -170,7 +176,7 @@
     font-size: 20px;
 }
 .background-sub-title {
-    background-color: #112011;
+    background-color: #111111;
     color: #ffffff;
     width: 75px;
     height: 35px;
@@ -186,7 +192,7 @@
     height: 22px;
 }
 .sub-settings {
-    background-color: #112011;
+    background-color: #111111;
     width: 100%;
     border-radius: 14px;
     padding: 8px 8px 12px;
@@ -456,7 +462,7 @@
 .background-bottom {
     bottom: 0;
     width: 100%;
-    background-color: #112011;
+    background-color: #111111;
     position: absolute;
 }
 .bg-bottom-small {

@@ -16,7 +16,7 @@
     min-width: 360px;
     width: 100%;
     height: 100%;
-    background-color: #112011;
+    background-color: #111111;
     border-radius: 50px;
     padding: 40px 20px;
 }
@@ -62,7 +62,7 @@
     line-height: 21px;
 }
 #middle-panel {
-    background-color: #112011;
+    background-color: #111111;
     width: 100%;
     position: relative;
 }
@@ -80,6 +80,9 @@
     visibility: hidden;
 }
 #challenge-panel-middle {
+    position: relative;
+}
+#challenge-panel-middle2 {
     position: relative;
 }
 .boards {
@@ -187,7 +190,7 @@
 .background-fixed {
     width: 100%;
     height: 90px;
-    background-color: #112011;
+    background-color: #111111;
     color: #ffffff;
 }
 #painel-player {
@@ -780,10 +783,10 @@
     width: 100%;
     box-sizing: border-box;
 }
-#list-challenge {
+.list-challenge {
     padding: 14px 0 6px 0;
 }
-#board-name-title {
+.board-name-title {
     line-height: 28px;
     text-align: center;
     font-family: "Roboto", sans-serif;
@@ -830,19 +833,19 @@
     left: 0;
     z-index: 200;
 }
-#answer-board {
+.answer-board {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 50px;
 }
-#name-answer-board {
+.name-answer-board {
     text-align: center;
     max-width: 370px;
     color: #ffffff;
     font-size: 28px;
-    line-height: 28px;
+    line-height: 34px;
 }
 
 @media (max-width: 388px) {

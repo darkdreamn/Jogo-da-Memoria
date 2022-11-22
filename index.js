@@ -10,6 +10,7 @@ const screenBoards = document.getElementById('screen-boards')
 const screenFeedback = document.getElementById('screen-feedback')
 const screenCongratulation = document.getElementById('screen-congratulation')
 const screenGameChallenge = document.getElementById('screen-play-challenge')
+const screenGameChallenge2 = document.getElementById('screen-play-challenge2')
 
 const mainBoards = document.getElementById('main-boards')
 const mainSettings = document.getElementById('main-settings')
@@ -24,8 +25,10 @@ const backCongratulation = document.getElementById('back-congratulation')
 const mainEffect = document.getElementById('main-base-effect')
 const titleEffect = document.getElementById('title-effect')
 const homeInChallenge = document.getElementById('home-in-challenge')
+const homeInChallenge2 = document.getElementById('home-in-challenge2')
 
 const startBtnC = document.getElementById('main-play-challenge')
+const startBtnD = document.getElementById('main-play-challenge2')
 const startBtn = document.getElementById('main-play')
 const lineEffect = document.getElementById('line-effect')
 const deleteHistoric = document.getElementById('reset-game')
@@ -44,7 +47,9 @@ let boardCode = document.getElementById('board-code-challenge')
 let boardNameGame = document.getElementById('board-name')
 const blockPanel = document.getElementById('block-panel')
 const blockPanelB = document.getElementById('block-panel-b')
+const blockPanelB2 = document.getElementById('block-panel-b2')
 const blockPanelC = document.getElementById('block-panel-c')
+const blockPanelC2 = document.getElementById('block-panel-c2')
 const settingsGame = document.getElementById('settings-game')
 const pointError1 = document.getElementById('points-error1')
 const pointError2 = document.getElementById('points-error2')
@@ -58,11 +63,17 @@ const strawberry = document.getElementById('img-strawberry')
 const star = document.getElementById('img-star')
 const listLevel = document.getElementById('list-level')
 const boardNameTitle = document.getElementById('board-name-title')
+const boardNameTitle2 = document.getElementById('board-name-title2')
 const nameBoardChallenge = document.getElementById('boards-game-challenge')
+const nameBoardChallenge2 = document.getElementById('boards-game-challenge2')
 const challengePanelTop = document.getElementById('challenge-panel-top')
+const challengePanelTop2 = document.getElementById('challenge-panel-top2')
 const answer = document.getElementById('answer-board')
+const answer2 = document.getElementById('answer-board2')
 const answerBoard = document.getElementById('img-answer-board')
+const answerBoard2 = document.getElementById('img-answer-board2')
 const answerName = document.getElementById('name-answer-board')
+const answerName2 = document.getElementById('name-answer-board2')
 const sinal1 = document.getElementById('sinal-1')
 const sinal2 = document.getElementById('sinal-2')
 const difficulty1 = document.getElementById('difficulty-1')
@@ -129,6 +140,7 @@ let countB1 = 0
 let countB2 = 0
 let countC1 = 0
 let countC2 = 0
+let countD = 0
 let codeB1 = []
 let codeB2 = []
 let auxElement
@@ -138,13 +150,22 @@ var userRBoards = []
 var userWBoards = []
 var challengeRBoards = []
 var challengeWBoards = []
+var challengeTotalBoards = []
 var boardsChallenge = []
+var boardsChallenge2 = []
 var boards = []
 let boardsLevel = 12
 var barColor = []
 for (let i = 0; i < 9; i++) {
     boardsChallenge.push({
         board: document.getElementById(`c${i + 1}`),
+        stateUse: false,
+        checked: false
+    })
+}
+for (let i = 0; i < 12; i++) {
+    boardsChallenge2.push({
+        board: document.getElementById(`d${i + 1}`),
         stateUse: false,
         checked: false
     })
@@ -159,7 +180,9 @@ var intervalIntroductionBoard
 var intervalFailFeedback
 var intervalOkFeedback
 var intervalGameChallenge
+var intervalGameChallenge2
 var intervalNextChallenge
+var intervalNextChallenge2
 let hour = 0
 let minute = 0
 let second = 0
@@ -190,8 +213,26 @@ for (let i = 0; i < 2; i++) {
     })
 }
 let boardElementChallenge = []
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 4; i++) {
     boardElementChallenge.push({
+        name: '',
+        code: '',
+        url: '',
+        newBoard: true
+    })
+}
+let boardElementRound = []
+for (let i = 0; i < 9; i++) {
+    boardElementRound.push({
+        name: '',
+        code: '',
+        url: '',
+        newBoard: true
+    })
+}
+let boardElementRound2 = []
+for (let i = 0; i < 12; i++) {
+    boardElementRound2.push({
         name: '',
         code: '',
         url: '',
@@ -231,6 +272,9 @@ userRBoards = createNewVetorRBoards(userRBoards)
 userWBoards = createNewVetorWBoards(userWBoards)
 challengeRBoards = createNewVetorRBoards(challengeRBoards)
 challengeWBoards = createNewVetorWBoards(challengeWBoards)
+challengeTotalBoards = createNewVetorRBoards(challengeTotalBoards)
+challengeTotalBoards = createNewVetorWBoards(challengeTotalBoards)
+
 configureBarColor()
 configureLifes()
 configurePointsBar()
@@ -250,6 +294,12 @@ startBtnC.addEventListener('click', () => {
     audioMouse.play()
     intervalGameChallenge = setInterval(gameChallenge, 1300)
 })
+startBtnD.addEventListener('click', () => {
+    titleEffect.classList.add('title-left')
+    mainEffect.classList.add('screen-main-left')
+    audioMouse.play()
+    intervalGameChallenge2 = setInterval(gameChallenge2, 1300)
+})
 function introLeft() {
     clearInterval(intervalIntroLeft)
     intro.classList.add("intro-left");
@@ -267,7 +317,135 @@ function gameChallenge() {
     mainEffect.classList.remove('screen-main-left')
     configureGameChallenge()
 }
+function gameChallenge2() {
+    clearInterval(intervalGameChallenge2)
+    screenMain.classList.add('display-off')
+    screenGameChallenge2.classList.remove('display-off')
+    titleEffect.classList.remove('title-left')
+    mainEffect.classList.remove('screen-main-left')
+    configureGameChallenge2()
+}
+function configureGameChallenge2() {
+    let auxArrayBoard = []
+    if (boardElementChallenge[3].newBoard == true) {
+        if (challengeTotalBoards.length > 0) {
+            boardElementChallenge[3] = challengeTotalBoards.shift()
+            boardElementChallenge[3].newBoard = false
+        }
+        else {
+            challengeTotalBoards = createNewVetorRBoards(challengeTotalBoards)
+            challengeTotalBoards = createNewVetorWBoards(challengeTotalBoards)
+            challengeTotalBoards.sort(() => Math.random() - 0.5)
+        }
+        if (countD == 120)
+            countD = 0
+        nameBoardChallenge2.innerHTML = `${countD + 1}/120`
+    }
+    boardNameTitle2.innerText = boardElementChallenge[3].name
+
+    for (let i = 0; i < 12; i++) {
+        boardsChallenge2[i].stateUse = false
+        boardsChallenge2[i].checked = false
+    }
+    boardElementRound2[0] = boardElementChallenge[3]
+    if (boardElementChallenge[3].code[0] == 'R') {
+        auxArrayBoard = createNewVetorRBoards(auxArrayBoard)
+        for (let i = 1; i < 6; i++) {
+            if (boardElementChallenge[3].id != auxArrayBoard[0].id)
+                boardElementRound2[i] = auxArrayBoard.shift()
+            else {
+                auxArrayBoard.shift()
+                i--
+            }
+        }
+        auxArrayBoard = []
+        auxArrayBoard = createNewVetorWBoards(auxArrayBoard)
+        for (let i = 6; i < 12; i++)
+            boardElementRound2[i] = auxArrayBoard.shift()
+    }
+    else if (boardElementChallenge[3].code[0] == 'A') {
+        auxArrayBoard = createNewVetorWBoards(auxArrayBoard)
+        for (let i = 1; i < 6; i++) {
+            if (boardElementChallenge[3].id != auxArrayBoard[0].id)
+                boardElementRound2[i] = auxArrayBoard.shift()
+            else {
+                auxArrayBoard.shift()
+                i--
+            }
+        }
+        auxArrayBoard = []
+        auxArrayBoard = createNewVetorRBoards(auxArrayBoard)
+        for (let i = 6; i < 12; i++)
+            boardElementRound2[i] = auxArrayBoard.shift()
+    }
+    boardElementRound2.sort(() => Math.random() - 0.5)
+
+    for (let i = 0; i < 12; i++) {
+        if (boardElementChallenge[3].code == boardElementRound2[i].code)
+            boardsChallenge2[i].stateUse = true
+        boardsChallenge2[i].board.style.backgroundImage = `url('${boardElementRound2[i].url}')`
+    }
+    playChallenge2()
+}
+function playChallenge2() {
+    for (let i = 0; i < 12; i++) {
+        boardsChallenge2[i].board.addEventListener('click', () => {
+            if (boardsChallenge2[i].stateUse && !boardsChallenge2[i].checked) {
+                boardsChallenge2[i].checked = true
+                boardElementChallenge[3].newBoard = true
+                countD++
+                feedbackChallenge2(true)
+            }
+            else if (!boardsChallenge2[i].stateUse && !boardsChallenge2[i].checked) {
+                boardsChallenge2[i].checked = true
+                boardElementChallenge[3].newBoard = false
+                feedbackChallenge2(false)
+            }
+        })
+    }
+}
+function feedbackChallenge2(value) {
+    if (value == true) {
+        audioOk[0].play()
+        challengePanelTop2.classList.remove('panel-default')
+        challengePanelTop2.classList.add('panel-correct')
+        boardNameTitle2.innerText = 'CERTO!'
+        boardNameTitle2.classList.remove('challenge-title')
+        boardNameTitle2.classList.add('ok-text')
+        blockPanelB2.classList.add('block-panel-c-on')
+        intervalNextChallenge2 = setInterval(nextPlayChallenge2, 1300)
+    }
+    else {
+        audioError[0].play()
+        challengePanelTop2.classList.remove('panel-default')
+        challengePanelTop2.classList.add('panel-wrong')
+        boardNameTitle2.innerText = 'A Placa Certa é'
+        boardNameTitle2.classList.remove('challenge-title')
+        boardNameTitle2.classList.add('error-text')
+        blockPanelC2.classList.add('block-panel-dark')
+        blockPanelC2.classList.remove('display-off')
+        answerBoard2.src = `${boardElementChallenge[3].url}`
+        answerName2.innerText = `${boardElementChallenge[3].name}`
+        intervalNextChallenge2 = setInterval(nextPlayChallenge2, 5000)
+    }
+}
+function nextPlayChallenge2() {
+    clearInterval(intervalNextChallenge2)
+    challengePanelTop2.classList.remove('panel-correct')
+    challengePanelTop2.classList.remove('panel-wrong')
+    challengePanelTop2.classList.add('panel-default')
+    boardNameTitle2.classList.add('challenge-title')
+    boardNameTitle2.classList.remove('ok-text')
+    boardNameTitle2.classList.remove('error-text')
+    blockPanelB2.classList.remove('block-panel-c-on')
+    blockPanelC2.classList.remove('block-panel-dark')
+    blockPanelC2.classList.add('display-off')
+    answer2.classList.add('display-off')
+    configureGameChallenge2()
+}
 function configureGameChallenge() {
+    let auxArrayBoard = []
+
     if (changeCategory.key == 1) {
         if (boardElementChallenge[0].newBoard == true) {
             if (challengeRBoards.length > 0) {
@@ -275,9 +453,7 @@ function configureGameChallenge() {
                 boardElementChallenge[0].newBoard = false
             }
             else {
-                for (let i = 0; i < rBoards.length; i++)
-                    challengeRBoards.push(rBoards[i])
-                challengeRBoards.sort(() => Math.random() - 0.5)
+                challengeRBoards = createNewVetorRBoards(challengeRBoards)
                 boardElementChallenge[0] = challengeRBoards.shift()
                 boardElementChallenge[0].newBoard = false
             }
@@ -294,9 +470,7 @@ function configureGameChallenge() {
                 boardElementChallenge[1].newBoard = false
             }
             else {
-                for (let i = 0; i < wBoards.length; i++)
-                    challengeWBoards.push(wBoards[i])
-                challengeWBoards.sort(() => Math.random() - 0.5)
+                challengeWBoards = createNewVetorWBoards(challengeWBoards)
                 boardElementChallenge[1] = challengeWBoards.shift()
                 boardElementChallenge[1].newBoard = false
             }
@@ -310,30 +484,35 @@ function configureGameChallenge() {
         boardsChallenge[i].stateUse = false
         boardsChallenge[i].checked = false
     }
-    let auxValue
-    let auxNewBoard
-    let countI = 0
-    while (countI < 9) {
-        if (changeCategory.key == 1) {
-            auxValue = Math.floor(Math.random() * (rBoards.length - 1))
-            auxNewBoard = rBoards[auxValue]
-            if (auxNewBoard.id != boardElementChallenge[0].id) {
-                boardElementChallenge[3] = rBoards[auxValue]
-                fillChallengeBoard(false, countI)
-                countI++
+    if (changeCategory.key == 1) {
+        auxArrayBoard = createNewVetorRBoards(auxArrayBoard)
+        for (let i = 0; i < 9; i++) {
+            if (boardElementChallenge[0].id != auxArrayBoard[0].id) {
+                boardElementRound[i] = auxArrayBoard.shift()
+                fillChallengeBoard(false, i)
+            }
+            else {
+                auxArrayBoard.shift()
+                i--
             }
         }
-        else if (changeCategory.key == 2) {
-            auxValue = Math.floor(Math.random() * (wBoards.length - 1))
-            auxNewBoard = wBoards[auxValue]
-            if (auxNewBoard.id != boardElementChallenge[1].id) {
-                boardElementChallenge[3] = wBoards[auxValue]
-                fillChallengeBoard(false, countI)
-                countI++
-            }
-        }
+        auxArrayBoard = []
     }
-    let position = Math.floor(Math.random() * (10 - 1))
+    else if (changeCategory.key == 2) {
+        auxArrayBoard = createNewVetorWBoards(auxArrayBoard)
+        for (let i = 0; i < 9; i++) {
+            if (boardElementChallenge[0].id != auxArrayBoard[0].id) {
+                boardElementRound[i] = auxArrayBoard.shift()
+                fillChallengeBoard(false, i)
+            }
+            else {
+                auxArrayBoard.shift()
+                i--
+            }
+        }
+        auxArrayBoard = []
+    }
+    let position = Math.floor(Math.random() * 9)
     fillChallengeBoard(true, position)
     playChallenge()
 }
@@ -345,7 +524,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[0].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[0].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 1: if (key == true) {
             boardsChallenge[1].stateUse = true
@@ -353,7 +532,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[1].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[1].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 2: if (key == true) {
             boardsChallenge[2].stateUse = true
@@ -361,7 +540,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[2].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[2].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 3: if (key == true) {
             boardsChallenge[3].stateUse = true
@@ -369,7 +548,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[3].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[3].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 4: if (key == true) {
             boardsChallenge[4].stateUse = true
@@ -377,7 +556,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[4].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[4].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 5: if (key == true) {
             boardsChallenge[5].stateUse = true
@@ -385,7 +564,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[5].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[5].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 6: if (key == true) {
             boardsChallenge[6].stateUse = true
@@ -393,7 +572,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[6].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[6].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 7: if (key == true) {
             boardsChallenge[7].stateUse = true
@@ -401,7 +580,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[7].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[7].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
         case 8: if (key == true) {
             boardsChallenge[8].stateUse = true
@@ -409,7 +588,7 @@ function fillChallengeBoard(key, item) {
                 `url('${boardElementChallenge[0].url}')` : `url('${boardElementChallenge[1].url}')`
         }
         else if (key == false && boardsChallenge[0].stateUse == false)
-            boardsChallenge[8].board.style.backgroundImage = `url('${boardElementChallenge[3].url}')`
+            boardsChallenge[8].board.style.backgroundImage = `url('${boardElementRound[item].url}')`
             break;
     }
 }
@@ -1099,8 +1278,11 @@ function timer() {
         hour++;
     }
     historic.idHours.innerHTML = returnData(hour)
+    historic.hours = `${returnData(hour)}`
     historic.idMinutes.innerHTML = returnData(minute)
+    historic.minutes = `${returnData(minute)}`
     historic.idSeconds.innerHTML = returnData(second)
+    historic.seconds = `${returnData(second)}`
 }
 function returnData(input) {
     return input >= 10 ? input : `0${input}`
@@ -1112,6 +1294,9 @@ function recoverHistoric() {
     historic.idPoints.innerText = historic.points
     historic.idHits.innerText = historic.hits
     historic.idErrors.innerText = historic.errors
+    historic.idHours.innerHTML = historic.hours
+    historic.idMinutes.innerHTML = historic.minutes
+    historic.idSeconds.innerHTML = historic.seconds
     //USO PARA TESTE DE CONCLUSÃO DO JOGO, comentar placas também
     // if (levels[0].countR >= 1 && levels[0].countW >= 1)
     if (levels[0].countR >= 51 && levels[0].countW >= 69)
@@ -1321,6 +1506,11 @@ homeInChallenge.addEventListener('click', () => {
     audioBack.play()
     screenMain.classList.remove('display-off')
     screenGameChallenge.classList.add('display-off')
+})
+homeInChallenge2.addEventListener('click', () => {
+    audioBack.play()
+    screenMain.classList.remove('display-off')
+    screenGameChallenge2.classList.add('display-off')
 })
 backPerformance.addEventListener('click', () => {
     audioBack.play()
