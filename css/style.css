@@ -7,7 +7,7 @@
     transition: ease 1.3s;
 }
 #intro {
-    background-image: url(images/abertura.png);
+    background-image: url(../images/abertura.png);
     width: 412px;
     height: 914px;
     background-position: center;

@@ -1,9 +1,8 @@
 body {
-    /* background-color: #ded9e6; */
     background-color: #9da2c5;
 }
 .container {
-    background-image: url(images/rotatoria.PNG);
+    background-image: url(../images/rotatoria.PNG);
     background-size: cover;
     background-position: left top;
     max-width: 412px;
